@@ -26,7 +26,6 @@ public class Bird : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 anim.SetTrigger("Flap");
-
                 rb2d.velocity = Vector2.zero;
                 rb2d.AddForce (new Vector2(0, upForce));
             }
@@ -36,11 +35,8 @@ public class Bird : MonoBehaviour
     void OnCollisionEnter2D (Collision2D other)
     {
         rb2d.velocity = Vector2.zero;
-
         isDead = true;
-
-        anim.SetTrigger("Die");
-
-        //GameControl.instance.BirdDied ();
+        anim.SetTrigger ("Die");
+        GameControl.instance.BirdDied ();
     }
 }
